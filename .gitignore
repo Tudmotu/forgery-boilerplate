@@ -1,0 +1,6 @@
+artifacts
+cache
+out
+out.txt
+.env
+lib/forgery-sdk
