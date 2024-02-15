@@ -14,7 +14,16 @@ contract Index is Server {
     QuoterV2 constant quoter = QuoterV2(0x61fFE014bA17989E743c5F6cB21bF9697530B21e);
 
     function start () external override {
+        router.get('/', hello);
         router.post('/quote', quote);
+    }
+
+    function hello (
+        Request calldata
+    ) public {
+        response.status = 200;
+        response.header('content-type', 'text/plain');
+        response.body = 'Hello, world!';
     }
 
     function quote (
